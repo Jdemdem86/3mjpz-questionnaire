@@ -4,8 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>3MJPZ — Questionnaire Boucherie-Épicerie Polastron 2027</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+/* Fallback fonts si Google Fonts indisponible */
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<script>var QRCode;!function(){function a(a){this.mode=c.MODE_8BIT_BYTE,this.data=a,this.parsedData=[];for(var b=[],d=0,e=this.data.length;e>d;d++){var f=this.data.charCodeAt(d);if(f>65536?(b[0]=240|(1835008&f)>>>18,b[1]=128|(258048&f)>>>12,b[2]=128|(4032&f)>>>6,b[3]=128|63&f):f>2048?(b[0]=224|(61440&f)>>>12,b[1]=128|(4032&f)>>>6,b[2]=128|63&f):f>128?(b[0]=192|(1984&f)>>>6,b[1]=128|63&f):b[0]=f,this.parsedData=this.parsedData.concat(b),b=[]);}this.parsedData.length!=this.data.length&&(this.parsedData.unshift(191),this.parsedData.unshift(187),this.parsedData.unshift(239))}function b(a,b){this.typeNumber=a,this.errorCorrectLevel=b,this.modules=null,this.moduleCount=0,this.dataCache=null,this.dataList=[]}function i(a,b){if(void 0==a.length)throw new Error(a.length);for(var c=0,d=0;d<a.length;d++)c+=a[d]<<(a.length-d-1);return c}function j(a,b){for(var c=0;0==a[c];)c++;for(var d=new Array(a.length+b-c),e=0;e<d.length;e++)d[e]=0;for(var e=0;e<a.length-c;e++)d[e]=a[e+c];return d}function k(a,b){for(var c=a.length-b.length,d=0;d<c;d++)b.unshift(0);for(var e=new Array(a.length),d=0;d<a.length;d++)e[d]=a[d]^b[d];return e}function l(a){for(var b=0,c=0;c<a.length;c++)b+=a[c];return b}function m(a){for(var b=0,c=0;c<a.length;c++)b+=a[c];return b}var c={MODE_NUMBER:1,MODE_ALPHA_NUM:2,MODE_8BIT_BYTE:4,MODE_KANJI:8},d={L:1,M:0,Q:3,H:2},e={PATTERN000:0,PATTERN001:1,PATTERN010:2,PATTERN011:3,PATTERN100:4,PATTERN101:5,PATTERN110:6,PATTERN111:7},f={PATTERN_POSITION_TABLE:[[],[6,18],[6,22],[6,26],[6,30],[6,34],[6,22,38],[6,24,42],[6,26,46],[6,28,50],[6,30,54],[6,32,58],[6,34,62],[6,26,46,66],[6,26,48,70],[6,26,50,74],[6,30,54,78],[6,30,56,82],[6,30,58,86],[6,34,62,90],[6,28,50,72,94],[6,26,50,74,98],[6,30,54,78,102],[6,28,54,80,106],[6,32,58,84,110],[6,30,58,86,114],[6,34,62,90,118],[6,26,50,74,98,122],[6,30,54,78,102,126],[6,26,52,78,104,130],[6,30,56,82,108,134],[6,34,60,86,112,138],[6,30,58,86,114,142],[6,34,62,90,118,146],[6,30,54,78,102,126,150],[6,24,50,76,102,128,154],[6,28,54,80,106,132,158],[6,32,58,84,110,136,162],[6,26,54,82,110,138,166],[6,30,58,86,114,142,170]],G15:1335,G18:7973,G15_MASK:21522,getBCHTypeInfo:function(a){for(var b=a<<10;f.getBCHDigit(b)-f.getBCHDigit(f.G15)>=0;)b^=f.G15<<f.getBCHDigit(b)-f.getBCHDigit(f.G15);return(a<<10|b)^f.G15_MASK},getBCHTypeNumber:function(a){for(var b=a<<12;f.getBCHDigit(b)-f.getBCHDigit(f.G18)>=0;)b^=f.G18<<f.getBCHDigit(b)-f.getBCHDigit(f.G18);return a<<12|b},getBCHDigit:function(a){for(var b=0;0!=a;)b++,a>>>=1;return b},getPatternPosition:function(a){return f.PATTERN_POSITION_TABLE[a-1]},getMask:function(a,b,c){switch(a){case e.PATTERN000:return(b+c)%2==0;case e.PATTERN001:return b%2==0;case e.PATTERN010:return c%3==0;case e.PATTERN011:return(b+c)%3==0;case e.PATTERN100:return(Math.floor(b/2)+Math.floor(c/3))%2==0;case e.PATTERN101:return b*c%2+b*c%3==0;case e.PATTERN110:return(b*c%2+b*c%3)%2==0;case e.PATTERN111:return(b*c%3+(b+c)%2)%2==0;default:throw new Error("bad maskPattern:"+a)}},getErrorCorrectPolynomial:function(a){for(var b=new h([1],0),c=0;a>c;c++)b=b.multiply(new h([1,g.gexp(c)],0));return b},getLengthInBits:function(a,b){if(b>=1&&10>b)switch(a){case c.MODE_NUMBER:return 10;case c.MODE_ALPHA_NUM:return 9;case c.MODE_8BIT_BYTE:return 8;case c.MODE_KANJI:return 8;default:throw new Error("mode:"+a)}else if(27>b)switch(a){case c.MODE_NUMBER:return 12;case c.MODE_ALPHA_NUM:return 11;case c.MODE_8BIT_BYTE:return 16;case c.MODE_KANJI:return 10;default:throw new Error("mode:"+a)}else{if(!(41>b))throw new Error("type:"+b);switch(a){case c.MODE_NUMBER:return 14;case c.MODE_ALPHA_NUM:return 13;case c.MODE_8BIT_BYTE:return 16;case c.MODE_KANJI:return 12;default:throw new Error("mode:"+a)}}},getLostPoint:function(a){for(var b=a.getModuleCount(),c=0,d=0;b>d;d++){for(var e=0,f=0,i=0;b>i;i++){var j=a.isDark(d,i);j&&(f++,e=0)&&(c+=3+m(j)),j||(f=0,e++,e>=5&&(c+=3+e-5))}for(var k=0;b-1>k;k++){var l=0;a.isDark(d,k)&&l++,a.isDark(d+1,k)&&l++,a.isDark(d,k+1)&&l++,a.isDark(d+1,k+1)&&l++,(0==l||4==l)&&(c+=3)}}for(var i=0;b>i;i++)for(var d=0;b-6>d;d++)a.isDark(d,i)&&!a.isDark(d+1,i)&&a.isDark(d+2,i)&&a.isDark(d+3,i)&&a.isDark(d+4,i)&&!a.isDark(d+5,i)&&a.isDark(d+6,i)&&(c+=40);for(var n=0,d=0;b>d;d++)for(var i=0;b>i;i++)a.isDark(d,i)&&n++;var o=Math.abs(100*n/b/b-50)/5;return c+=10*o}},g={glog:function(a){if(1>a)throw new Error("glog("+a+")");return g.LOG_TABLE[a]},gexp:function(a){for(;0>a;)a+=255;for(;a>=256;)a-=255;return g.EXP_TABLE[a]},EXP_TABLE:new Array(256),LOG_TABLE:new Array(256)};for(var n=0;8>n;n++)g.EXP_TABLE[n]=1<<n;for(var n=8;256>n;n++)g.EXP_TABLE[n]=g.EXP_TABLE[n-4]^g.EXP_TABLE[n-5]^g.EXP_TABLE[n-6]^g.EXP_TABLE[n-8];for(var n=0;255>n;n++)g.LOG_TABLE[g.EXP_TABLE[n]]=n;var h=function(a,b){if(void 0==a.length)throw new Error(a.length);this.num=new Array(a.length+b);for(var c=0;c<this.num.length;c++)this.num[c]=0;for(var c=0;c<a.length;c++)this.num[c]=a[c]};h.prototype={get:function(a){return this.num[a]},getLength:function(){return this.num.length},multiply:function(a){for(var b=new Array(this.getLength()+a.getLength()-1),c=0;c<b.length;c++)b[c]=0;for(var c=0;c<this.getLength();c++)for(var d=0;d<a.getLength();d++)b[c+d]^=g.gexp(g.glog(this.get(c))+g.glog(a.get(d)));return new h(b,0)},mod:function(a){if(this.getLength()-a.getLength()<0)return this;for(var b=g.glog(this.get(0))-g.glog(a.get(0)),c=new Array(this.getLength()),d=0;d<this.getLength();d++)c[d]=this.get(d);for(var d=0;d<a.getLength();d++)c[d]^=g.gexp(g.glog(a.get(d))+b);return new h(c,0).mod(a)}};b.prototype={addData:function(a){var b=new window.QRCode.QRCode8BitByte(a);this.dataList.push(b),this.dataCache=null},isDark:function(a,b){if(0>a||this.moduleCount<=a||0>b||this.moduleCount<=b)throw new Error(a+","+b);return this.modules[a][b]},getModuleCount:function(){return this.moduleCount},make:function(){this.makeImpl(!1,this.getBestMaskPattern())},makeImpl:function(a,c){this.moduleCount=4*this.typeNumber+17,this.modules=new Array(this.moduleCount);for(var d=0;d<this.moduleCount;d++){this.modules[d]=new Array(this.moduleCount);for(var e=0;e<this.moduleCount;e++)this.modules[d][e]=null}this.setupPositionProbePattern(0,0),this.setupPositionProbePattern(this.moduleCount-7,0),this.setupPositionProbePattern(0,this.moduleCount-7),this.setupPositionAdjustPattern(),this.setupTimingPattern(),this.setupTypeInfo(a,c),this.typeNumber>=7&&this.setupTypeNumber(a),null==this.dataCache&&(this.dataCache=b.createData(this.typeNumber,this.errorCorrectLevel,this.dataList)),this.mapData(this.dataCache,c)},setupPositionProbePattern:function(a,b){for(var c=-1;7>=c;c++)if(!(-1>a+c||this.moduleCount<=a+c))for(var d=-1;7>=d;d++)-1>b+d||this.moduleCount<=b+d||(this.modules[a+c][b+d]=c>=0&&6>=c&&(0==d||6==d)||d>=0&&6>=d&&(0==c||6==c)||c>=2&&4>=c&&d>=2&&4>=d?!0:!1)},getBestMaskPattern:function(){for(var a=0,b=0,c=0;8>c;c++){this.makeImpl(!0,c);var d=f.getLostPoint(this);(0==c||a>d)&&(a=d,b=c)}return b},createMovieClip:function(a,b,c){var d=a.createEmptyMovieClip(b,c),e=this.createMovieClip;return d},setupTimingPattern:function(){for(var a=8;this.moduleCount-8>a;a++)null==this.modules[a][6]&&(this.modules[a][6]=a%2==0);for(var b=8;this.moduleCount-8>b;b++)null==this.modules[6][b]&&(this.modules[6][b]=b%2==0)},setupPositionAdjustPattern:function(){for(var a=f.getPatternPosition(this.typeNumber),b=0;b<a.length;b++)for(var c=0;c<a.length;c++){var d=a[b],e=a[c];if(null==this.modules[d][e]){for(var g=-2;2>=g;g++)for(var h=-2;2>=h;h++)this.modules[d+g][e+h]=-2==g||2==g||-2==h||2==h||0==g&&0==h?!0:!1}}},setupTypeNumber:function(a){for(var b=f.getBCHTypeNumber(this.typeNumber),c=0;18>c;c++){var d=!a&&1==(b>>c&1);this.modules[Math.floor(c/3)][c%3+this.moduleCount-8-3]=d}for(var c=0;18>c;c++){var d=!a&&1==(b>>c&1);this.modules[c%3+this.moduleCount-8-3][Math.floor(c/3)]=d}},setupTypeInfo:function(a,b){for(var c=this.errorCorrectLevel<<3|b,d=f.getBCHTypeInfo(c),e=0;15>e;e++){var g=!a&&1==(d>>e&1);6>e?this.modules[e][8]=g:8>e?this.modules[e+1][8]=g:this.modules[this.moduleCount-15+e][8]=g}for(var e=0;15>e;e++){var g=!a&&1==(d>>e&1);8>e?this.modules[8][this.moduleCount-e-1]=g:9>e?this.modules[8][15-e-1+1]=g:this.modules[8][15-e-1]=g}this.modules[this.moduleCount-8][8]=!a},mapData:function(a,b){for(var c=-1,d=this.moduleCount-1,g=7,h=0,i=this.moduleCount-1;i>0;i-=2)for(6==i&&i--;;){for(var j=0;2>j;j++)if(null==this.modules[d][i-j]){var k=!1;h<a.length&&(k=1==(a[h]>>>g&1)),f.getMask(b,d,i-j)&&(k=!k),this.modules[d][i-j]=k,g--,-1==g&&(h++,g=7)}if(d+=c,0>d||this.moduleCount<=d){d-=c,c=-c;break}}},b.PAD0:236,b.PAD1:17,b.createData:function(a,c,d){for(var e=p.getRSBlocks(a,c),g=new o,h=0;h<d.length;h++){var i=d[h];g.put(i.mode,4),g.put(i.getLength(),f.getLengthInBits(i.mode,a)),i.write(g)}for(var j=0,h=0;h<e.length;h++)j+=e[h].dataCount;if(g.getLengthInBits()>8*j)throw new Error("code length overflow. ("+g.getLengthInBits()+">"+8*j+")");for(g.getLengthInBits()+4<=8*j&&g.put(0,4);g.getLengthInBits()%8!=0;)g.putBit(!1);for(;;){if(g.getLengthInBits()>=8*j)break;if(g.put(b.PAD0,8),g.getLengthInBits()>=8*j)break;g.put(b.PAD1,8)}return b.createBytes(g,e)},b.createBytes:function(a,b){for(var c=0,d=0,e=0,f=new Array(b.length),h=new Array(b.length),i=0;i<b.length;i++){var j=b[i].dataCount,k=b[i].totalCount-j;d=Math.max(d,j),e=Math.max(e,k),f[i]=new Array(j);for(var l=0;l<f[i].length;l++)f[i][l]=255&a.buffer[a.length-b[i].dataCount-b[i].totalCount+b[i].dataCount+l];h[i]=new Array(k);for(var l=0;l<h[i].length;l++)h[i][l]=255&a.buffer[b[i].dataCount+l]}var m=new Array(b[0].totalCount);for(var n=0,l=0;d>l;l++)for(var i=0;i<b.length;i++)l<f[i].length&&(m[n++]=f[i][l]);for(var l=0;e>l;l++)for(var i=0;i<b.length;i++)l<h[i].length&&(m[n++]=h[i][l]);return m}};var o=function(){this.buffer=[],this.length=0};o.prototype={get:function(a){var b=Math.floor(a/8);return 1==(this.buffer[b]>>>7-a%8&1)},put:function(a,b){for(var c=0;b>c;c++)this.putBit(1==(a>>>b-c-1&1))},getLengthInBits:function(){return this.length},putBit:function(a){var b=Math.floor(this.length/8);this.buffer.length<=b&&this.buffer.push(0),a&&(this.buffer[b]|=128>>>this.length%8),this.length++}};var p=function(){};p.RS_BLOCK_TABLE=[[1,26,19],[1,26,16],[1,26,13],[1,26,9],[1,44,34],[1,44,28],[1,44,22],[1,44,16],[1,70,55],[1,70,44],[2,35,17],[2,35,13],[1,100,80],[2,50,32],[2,50,24],[4,25,9],[1,134,108],[2,67,43],[2,33,15,2,34,16],[2,33,11,2,34,12],[2,86,68],[4,43,27],[4,43,19],[4,43,15],[2,98,78],[4,49,31],[2,32,14,4,33,15],[4,39,13,1,40,14],[2,121,97],[2,60,38,2,61,39],[4,40,18,2,41,19],[4,40,14,2,41,15],[2,146,116],[3,58,36,2,59,37],[4,36,16,4,37,17],[4,36,12,4,37,13],[2,86,68,2,87,69],[4,69,43,1,70,44],[6,43,19,2,44,20],[6,43,15,2,44,16],[4,101,81],[1,80,50,4,81,51],[4,50,22,4,51,23],[3,36,12,8,37,13],[2,116,92,2,117,93],[6,58,36,2,59,37],[4,46,20,6,47,21],[7,42,14,4,43,15],[4,133,107],[8,59,37,1,60,38],[8,44,20,4,45,21],[12,33,11,4,34,12],[3,145,115,1,146,116],[4,64,40,5,65,41],[11,36,16,5,37,17],[11,36,12,5,37,13],[5,109,87,1,110,88],[5,65,41,5,66,42],[5,54,24,7,55,25],[11,36,12],[5,122,98,1,123,99],[7,73,45,3,74,46],[15,43,19,2,44,20],[3,45,15,13,46,16],[1,135,107,5,136,108],[10,74,46,1,75,47],[1,50,22,15,51,23],[2,42,14,17,43,15],[5,150,120,1,151,121],[9,69,43,4,70,44],[17,50,22,1,51,23],[2,42,14,19,43,15],[3,141,113,4,142,114],[3,70,44,11,71,45],[17,47,21,4,48,22],[9,39,13,16,40,14],[3,135,107,5,136,108],[3,67,41,13,68,42],[15,54,24,5,55,25],[15,43,15,10,44,16],[4,144,116,4,145,117],[17,68,42],[17,50,22,6,51,23],[19,46,16,6,47,17],[2,139,111,7,140,112],[17,74,46],[7,54,24,16,55,25],[34,37,13],[4,151,121,5,152,122],[4,75,47,14,76,48],[11,54,24,14,55,25],[16,45,15,14,46,16],[6,147,117,4,148,118],[6,73,45,14,74,46],[11,54,24,16,55,25],[30,46,16,2,47,17],[8,132,106,4,133,107],[8,75,47,13,76,48],[7,54,24,22,55,25],[22,45,15,13,46,16],[10,142,114,2,143,115],[19,74,46,4,75,47],[28,50,22,6,51,23],[33,46,16,4,47,17],[8,152,122,4,153,123],[22,73,45,3,74,46],[8,53,23,26,54,24],[12,45,15,28,46,16],[3,147,117,10,148,118],[3,73,45,23,74,46],[4,54,24,31,55,25],[11,45,15,31,46,16],[7,146,116,7,147,117],[21,73,45,7,74,46],[1,53,23,37,54,24],[19,45,15,26,46,16],[5,145,115,10,146,116],[19,75,47,10,76,48],[15,54,24,25,55,25],[23,45,15,25,46,16],[13,145,115,3,146,116],[2,74,46,29,75,47],[42,54,24,1,55,25],[23,45,15,28,46,16],[17,145,115],[10,74,46,23,75,47],[10,54,24,35,55,25],[19,45,15,35,46,16],[17,145,115,1,146,116],[14,74,46,21,75,47],[29,54,24,19,55,25],[11,45,15,46,46,16],[13,145,115,6,146,116],[14,74,46,23,75,47],[44,54,24,7,55,25],[59,46,16,1,47,17],[12,151,121,7,152,122],[12,75,47,26,76,48],[39,54,24,14,55,25],[22,45,15,41,46,16],[6,151,121,14,152,122],[6,75,47,34,76,48],[46,54,24,10,55,25],[2,45,15,64,46,16],[17,152,122,4,153,123],[29,74,46,14,75,47],[49,54,24,10,55,25],[24,45,15,46,46,16],[4,152,122,18,153,123],[13,74,46,32,75,47],[48,54,24,14,55,25],[42,45,15,32,46,16],[20,147,117,4,148,118],[40,75,47,7,76,48],[43,54,24,22,55,25],[10,45,15,67,46,16],[19,148,118,6,149,119],[18,75,47,31,76,48],[34,54,24,34,55,25],[20,45,15,61,46,16]];p.getRSBlocks=function(a,b){var c=p.getRsBlockTable(a,b);if(void 0==c)throw new Error("bad rs block @ typeNumber:"+a+"/errorCorrectLevel:"+b);for(var d=c.length/3,e=[],f=0;d>f;f++)for(var g=c[3*f+0],h=c[3*f+1],i=c[3*f+2],j=0;g>j;j++)e.push(new q(h,i));return e};p.getRsBlockTable=function(a,b){switch(b){case d.L:return p.RS_BLOCK_TABLE[4*(a-1)+0];case d.M:return p.RS_BLOCK_TABLE[4*(a-1)+1];case d.Q:return p.RS_BLOCK_TABLE[4*(a-1)+2];case d.H:return p.RS_BLOCK_TABLE[4*(a-1)+3];default:return void 0}};var q=function(a,b){this.totalCount=a,this.dataCount=b};QRCode=function(a,b){if("string"==typeof b&&(b={text:b}),this._htOption={width:256,height:256,typeNumber:4,colorDark:"#000000",colorLight:"#ffffff",correctLevel:d.H},b)for(var c in b)this._htOption[c]=b[c];"string"==typeof a&&(a=document.getElementById(a)),this._android=r(this._htOption),this._el=a,this._oQRCode=null,this._oDrawing=new s(a,this._htOption),this._oQRCode=null!=this._htOption.text?this.makeCode(this._htOption.text):this._oQRCode};QRCode.prototype.makeCode=function(a){this._oQRCode=new b(t(a,this._htOption.typeNumber),this._htOption.correctLevel),this._oQRCode.addData(a),this._oQRCode.make(),this._el.title=a,this._oDrawing.draw(this._oQRCode),this.makeImage()};QRCode.prototype.makeImage=function(){"function"==typeof this._oDrawing.makeImage&&(!this._android||this._htOption.src)&&this._oDrawing.makeImage()};QRCode.prototype.clear=function(){this._oDrawing.clear()};var r=function(a){return/android/i.test(navigator.userAgent)&&(a.useSVG=!0),a.useSVG},s=function(a,b){this._bIsPainted=!1,this._android=r(b);this._htOption=b;this._el=a;this._oContext=null;this._bIsPainted=!1;this._android=r(b)};s.prototype.draw=function(a){var b=this._htOption,c=this._el,d=a.getModuleCount(),e=Math.floor(b.width/d),f=Math.floor(b.height/d),g=document.createElement("div");g.style.cssText="overflow:hidden;",g.style.width=b.width+"px",g.style.height=b.height+"px";for(var h=0;d>h;h++){var i=document.createElement("div");i.style.height=e+"px";for(var j=0;d>j;j++){var k=document.createElement("div");k.style.cssText="float:left;",k.style.width=f+"px",k.style.height=e+"px",k.style.backgroundColor=a.isDark(h,j)?b.colorDark:b.colorLight,i.appendChild(k)}g.appendChild(i)}c.appendChild(g),this._bIsPainted=!0};s.prototype.makeImage=function(){};s.prototype.isPainted=function(){return this._bIsPainted};s.prototype.clear=function(){this._el.innerHTML="",this._bIsPainted=!1};s.prototype.round=function(a){return a?Math.floor(1e3*a)/1e3:a};var t=function(a,b){if(b)return b;for(var c=1,d=40;d>=c;c++){var e=p.getRSBlocks(c,d.H),f=new o,g=0;if(e.reduce(function(a,b){return a+b.dataCount},0),f.put(4,4),f.put(a.length,f.getLengthInBits(4,c)),f.putBit(!1),f.getLengthInBits()<=8*(e.reduce(function(a,b){return a+b.dataCount},0)))return c}};QRCode.CorrectLevel=d;QRCode.QRCode8BitByte=a}();</script>
 <style>
 /* ══ CHARTE 3MJPZ ══ */
 :root {
@@ -33,7 +36,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: 'Source Sans 3', Arial, sans-serif;
   background: var(--charbon);
   color: var(--txt);
   min-height: 100vh;
@@ -78,7 +81,7 @@ body::before {
   filter: drop-shadow(0 2px 6px rgba(107,184,212,.3));
 }
 .header-brand {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Bebas Neue', Impact, sans-serif;
   font-size: 22pt;
   line-height: 0.9;
   background: linear-gradient(175deg, #E8F6FB 10%, var(--glace2) 40%, var(--glace) 65%, #4A96B8 100%);
@@ -89,7 +92,7 @@ body::before {
   filter: drop-shadow(0 1px 3px rgba(107,184,212,.4));
 }
 .header-sub {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Bebas Neue', Impact, sans-serif;
   font-size: 7pt;
   color: var(--flamme2);
   letter-spacing: .18em;
@@ -129,7 +132,7 @@ body::before {
   border-radius: 99px;
   border: 1.5px solid var(--charbon3);
   background: var(--charbon2);
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: 'Source Sans 3', Arial, sans-serif;
   font-size: 9pt;
   font-weight: 600;
   color: var(--acier2);
@@ -172,7 +175,7 @@ body::before {
   color: var(--acier);
   transition: all .3s;
   cursor: pointer;
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: 'Source Sans 3', Arial, sans-serif;
 }
 .pill.active {
   background: var(--flamme);
@@ -240,7 +243,7 @@ main {
   background: linear-gradient(90deg, var(--flamme) 0%, var(--glace) 100%);
 }
 .sec-num {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Bebas Neue', Impact, sans-serif;
   font-size: 40pt;
   color: var(--flamme2);
   opacity: .3;
@@ -249,7 +252,7 @@ main {
 }
 .sec-icon { font-size: 26px; flex-shrink: 0; margin-top: 4px; }
 .sec-info h2 {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Bebas Neue', Impact, sans-serif;
   font-size: 16pt;
   letter-spacing: .06em;
   background: linear-gradient(135deg, #fff 0%, var(--glace2) 100%);
@@ -293,7 +296,7 @@ main {
   line-height: 1.4;
 }
 .q-idx {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Bebas Neue', Impact, sans-serif;
   font-size: 13pt;
   color: var(--flamme);
   flex-shrink: 0;
@@ -369,7 +372,7 @@ main {
   border: 1.5px solid var(--ligne);
   border-radius: 7px;
   padding: 11px 13px;
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: 'Source Sans 3', Arial, sans-serif;
   font-size: 9.5pt;
   background: var(--neige);
   color: var(--txt);
@@ -388,7 +391,7 @@ main {
 .freq-table th {
   background: var(--charbon);
   color: var(--glace2);
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Bebas Neue', Impact, sans-serif;
   letter-spacing: .06em;
   font-size: 8pt;
   padding: 8px 10px;
@@ -416,12 +419,12 @@ main {
   text-align: center;
   font-weight: 700;
   color: var(--flamme);
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Bebas Neue', Impact, sans-serif;
   letter-spacing: .06em;
   font-size: 8pt;
   border-bottom: 2px solid var(--glace3);
 }
-.rate-table th:first-child { text-align: left; font-size: 9pt; font-family: 'Source Sans 3', sans-serif; font-weight: 600; }
+.rate-table th:first-child { text-align: left; font-size: 9pt; font-family: 'Source Sans 3', Arial, sans-serif; font-weight: 600; }
 .rate-table td { padding: 8px 6px; text-align: center; border-bottom: 1px solid var(--ligne); }
 .rate-table td:first-child { text-align: left; padding-left: 0; }
 .rate-table tr:last-child td { border-bottom: none; }
@@ -454,7 +457,7 @@ main {
   gap: 8px;
   padding: 11px 22px;
   border-radius: 99px;
-  font-family: 'Source Sans 3', sans-serif;
+  font-family: 'Source Sans 3', Arial, sans-serif;
   font-size: 9.5pt;
   font-weight: 700;
   cursor: pointer;
@@ -539,7 +542,7 @@ main {
 }
 .intro-brand-block { text-align: left; }
 .intro-brand {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Bebas Neue', Impact, sans-serif;
   font-size: 32pt;
   line-height: 0.88;
   background: linear-gradient(175deg, #E8F6FB 10%, var(--glace2) 40%, var(--glace) 65%, #4A96B8 100%);
@@ -550,14 +553,14 @@ main {
   filter: drop-shadow(0 2px 6px rgba(107,184,212,.5));
 }
 .intro-brand-sub {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Bebas Neue', Impact, sans-serif;
   font-size: 9pt;
   color: var(--flamme2);
   letter-spacing: .2em;
   margin-top: 2px;
 }
 .intro-hero h2 {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Bebas Neue', Impact, sans-serif;
   font-size: 19pt;
   letter-spacing: .08em;
   background: linear-gradient(135deg, #fff 0%, var(--glace2) 100%);
@@ -591,7 +594,7 @@ main {
   border-top: 2px solid var(--flamme);
 }
 .meta-num {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Bebas Neue', Impact, sans-serif;
   font-size: 22pt;
   color: var(--flamme);
   line-height: 1;
@@ -619,7 +622,7 @@ main {
   color: #fff;
   border: none;
   border-radius: 10px;
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Bebas Neue', Impact, sans-serif;
   font-size: 14pt;
   letter-spacing: .08em;
   cursor: pointer;
@@ -636,7 +639,7 @@ main {
 }
 .thank-icon { font-size: 60px; margin-bottom: 14px; }
 .thank-screen h2 {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Bebas Neue', Impact, sans-serif;
   font-size: 24pt;
   letter-spacing: .08em;
   background: linear-gradient(135deg, var(--flamme) 0%, var(--glace) 100%);
@@ -663,7 +666,7 @@ main {
   text-align: left;
 }
 .summary-box h3 {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Bebas Neue', Impact, sans-serif;
   font-size: 11pt;
   letter-spacing: .06em;
   color: var(--flamme);
@@ -725,7 +728,7 @@ main {
   border-top: 3px solid var(--flamme);
 }
 .qr-card h2 {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Bebas Neue', Impact, sans-serif;
   font-size: 20pt;
   letter-spacing: .08em;
   background: linear-gradient(135deg, var(--flamme) 0%, var(--glace) 100%);
@@ -764,7 +767,7 @@ main {
   text-align: left;
 }
 .qr-instructions h3 {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Bebas Neue', Impact, sans-serif;
   font-size: 11pt;
   letter-spacing: .06em;
   color: var(--glace2);
